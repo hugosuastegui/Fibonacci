@@ -1,3 +1,5 @@
+require "benchmark"
+
 def fibonacci_iterative(n)
    array_fibonacci = [1, 1]
   for i in 0..10
@@ -18,16 +20,17 @@ def fibonacci_recursive(n)
     fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
   end
 end
-p fibonacci_iterative(0) == 0
-p fibonacci_iterative(1) == 1
-p fibonacci_iterative(2) == 1
-p fibonacci_iterative(3) == 2
-p fibonacci_iterative(4) == 3
-p fibonacci_iterative(5) == 5
+#p fibonacci_iterative(0) #== 0
+# p fibonacci_iterative(1) == 1
+# p fibonacci_iterative(2) == 1
+# p fibonacci_iterative(3) == 2
+# p fibonacci_iterative(4) == 3
+# p fibonacci_iterative(5) == 5
 
-p fibonacci_recursive(0) == 0
-p fibonacci_recursive(1) == 1
-p fibonacci_recursive(2) == 1
-p fibonacci_recursive(3) == 2
-p fibonacci_recursive(4) == 3
-p fibonacci_recursive(5) == 5
+# p fibonacci_recursive(0) == 0
+# p fibonacci_recursive(1) == 1
+# p fibonacci_recursive(2) == 1
+# p fibonacci_recursive(3) == 2
+# p fibonacci_recursive(4) == 3
+# p fibonacci_recursive(5) == 5
+puts Benchmark.measure { 1000.times {fibonacci_recursive(100)}}
